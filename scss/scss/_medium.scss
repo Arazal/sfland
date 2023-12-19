@@ -1,0 +1,37 @@
+@media only screen and (min-width: 560px) {
+    // header, main {max-width: 60rem; margin: 0 auto;}
+ 
+    body {
+        font-family: var(--dunhill);
+        .hero-banner {
+            img {
+                display: none;
+            }
+            background-image: url('/banner1400.png');
+            h1 {
+                grid-row: 2/3;
+            }
+
+            @keyframes hero-text1{
+                from {
+                  /* clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%); */
+                  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+                  transform: none;
+              }
+                 to {
+                    /* clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%); */
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                    // transform: scale(2);
+                    color: var(--secondaryColor);  
+                }
+            }
+
+            .container {
+                grid-row: 4/5;
+                
+            }
+        }
+    }
+} 
+
+

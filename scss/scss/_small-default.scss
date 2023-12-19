@@ -1,0 +1,199 @@
+body {
+    font-family: var(--dunhill);
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.5;
+    background-color: var(--primaryColor);
+    // color: var(--coffee);
+    font-size: var(--base-size);
+    padding: 0;
+    margin: 0;
+
+    .ui-button {
+        display: inline-block;
+        height: 3em;
+        padding: 1rem 1rem;
+        background-color: var(--secondaryColor);
+        color: white;
+        text-decoration: none;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        opacity: 0.8;
+        animation: bounce 1s infinite;
+    }
+    
+    .ui-button:hover {
+        background-color: var(--primaryColor);
+    }
+    
+    /* Keyframe animation */
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(-5%);
+            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+            transform: none;
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+    }
+    
+
+    .hero-banner{
+        background-image: url('/sfcars.jpeg'); /* Replace with your image URL */
+        background-size: cover;
+        background-position: center;
+        // height: 400px; /* Set desired height */
+        height: 100vh;
+        overflow: hidden;
+        opacity: 0.8;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+        img {
+            width:  45px;
+            height: 45px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0.75rem;
+            animation: logo 2s forwards;
+        }
+
+        @keyframes logo {
+            from {
+                transform: scale(0.8);
+            }
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        h1 {
+            grid-row: 2/3;
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-bottom: 0;
+            
+            animation: hero-text1 4s  both;
+            span {
+                animation: ontext 3s 2s both;
+            }
+        }
+        
+
+        @keyframes hero-text1{
+            from {
+              /* clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%); */
+              clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+              transform: none;
+          }
+             to {
+                /* clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%); */
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                // transform: scale(2);
+                color: var(--secondaryColor);  
+            }
+        }
+
+        @keyframes ontext {
+            from {
+            //    transform: scale(0.8);
+               opacity: 0;
+            }
+            to {
+            // transform: scale(1.5);
+            opacity: 1;
+            }
+        }
+
+        .container {
+            grid-row: 4/5;
+            display: flex;
+            justify-content: center;
+        }   
+    }
+  }
+
+  
+  .features-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 60px 1fr;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.item {
+    // position: absolute;
+    width: 100%;
+    height: 100%;
+    // transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: var(--radius);
+}
+
+/* Define different grid positions */
+.item.one {
+    
+    background-color: var(--secondaryColor2);
+    color: white;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    transform: translate(-100%, 0);
+}
+
+.item.two {
+    
+    background-color: var(--primaryColor2);
+    color: white;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    transform: translate(100%, -100%);
+}
+
+.item.icon {
+    grid-column: 1/3;
+    grid-row: 2/3;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+
+
+   height: 60px;
+    img {
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+.item.three {
+    background-color: var(--primaryColor3);
+    color: white;
+    grid-column: 1/2;
+    grid-row: 3/4;
+    transform: translate(-100%, 100%);
+}
+
+.item.four {
+    background-color: var(--secondaryColor3);
+    color: white;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    transform: translate(100%, 0);
+}
+
+/* Apply transition when the 'move' class is added to the container */
+.features-container.move .item {
+    transform: translate(0, 0);
+    
+}
